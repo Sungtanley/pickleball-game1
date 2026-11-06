@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0d2031" />
+<title>피클볼 퀘스트 | 사이드아웃과 경기 규칙</title>
+<style>
+:root { --navy:#0d2031;--navy2:#142f43;--ink:#183141;--mute:#607588;--teal:#0d8c87;--orange:#e98136;--blue:#3986df;--mint:#d9f4e8;--bg:#eef5f5;--line:#dae5e7;--ok:#18845f;--bad:#c64643; }
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family:Pretendard,'Noto Sans KR','Malgun Gothic',system-ui,sans-serif;line-height:1.5}button{font:inherit;cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.shell{max-width:1100px;margin:auto;padding:22px 20px 50px}.mast{background:linear-gradient(123deg,#0e293e,#154a54);color:#fff;border-radius:24px;padding:30px;position:relative;overflow:hidden}.mast:after{content:"◌";position:absolute;right:18px;top:-110px;font-size:290px;color:#ffffff0e;pointer-events:none}.eyebrow{font-weight:800;letter-spacing:1.5px;font-size:12px;color:#91e7c6}.mast h1{font-size:clamp(27px,5vw,42px);line-height:1.2;margin:9px 0}.mast p{margin:0;color:#d1e5e6;max-width:750px;font-size:15px}.tag{display:inline-flex;border:1px solid #ffffff45;border-radius:100px;padding:6px 11px;font-size:12px;font-weight:700;margin-top:18px;margin-right:5px}.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.tab{border:1px solid #d6e4e7;background:white;border-radius:13px;padding:12px 18px;font-size:14px;font-weight:800;color:#45616c}.tab.active{background:#0b777b;color:white;border-color:#0b777b;box-shadow:0 4px 13px #0b777b22}.main{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:17px;align-items:start}.panel{background:white;border:1px solid #dbe8e8;border-radius:20px;padding:22px;box-shadow:0 4px 18px #134b4d09}.smallheading{font-size:12px;font-weight:900;letter-spacing:1px;color:#568486;margin:0 0 9px}.panel h2{font-size:20px;line-height:1.3;margin:0 0 13px}.scoreboard{display:grid;grid-template-columns:1fr .96fr 1fr;gap:9px;align-items:stretch;margin-bottom:18px}.team-score{background:#f4f9fb;border:1px solid #e1eaf0;padding:13px;border-radius:15px;text-align:center}.team-score.b{background:#fff8f1;border-color:#f5e6d7}.team-title{font-weight:900;font-size:13px}.score-num{font-size:43px;font-weight:950;line-height:1.15;font-variant-numeric:tabular-nums}.call{background:#123345;color:white;text-align:center;border-radius:15px;padding:13px 7px;display:flex;flex-direction:column;align-items:center;justify-content:center}.call strong{font-size:clamp(19px,2.4vw,27px);white-space:nowrap;font-variant-numeric:tabular-nums}.call small{font-size:10px;color:#b6d7d6;font-weight:700}.court{background:#267667;border:7px solid #22574e;border-radius:15px;padding:11px;color:#fff;box-shadow:inset 0 2px 20px #0433234a}.court-title{text-align:center;font-size:12px;font-weight:900;color:#e7fff2;margin:0 0 10px}.half{display:grid;grid-template-columns:1fr 1fr;gap:5px;min-height:88px}.place{border:2px solid #ffffff9d;display:flex;align-items:center;justify-content:center;flex-direction:column;min-height:83px;border-radius:5px;background:#ffffff1a;text-align:center;padding:5px}.place .player{display:inline-flex;gap:3px;align-items:center;background:#e9f4fb;color:#154164;border:2px solid #c6e4fa;border-radius:8px;font-size:13px;font-weight:900;padding:4px 9px}.place .player.b{background:#fff1df;color:#7c4009;border-color:#fbd3a2}.place .player.serving{outline:3px solid #ffee78;box-shadow:0 0 0 6px #ffdf5828}.place small{font-size:10px;color:#ebfff3;margin-top:4px;font-weight:800}.kitchen{background:#dfecb85e;border:2px solid #e7ffe3;text-align:center;font-size:11px;padding:6px;border-radius:4px;letter-spacing:.5px}.net{background:#ffffff;color:#1e5e56;text-align:center;border-radius:2px;letter-spacing:5px;font-size:10px;font-weight:950;padding:4px;margin:5px 0}.side-legend{font-size:11px;margin:11px 0 0;color:#607b85}.bottom-info{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:15px}.tiny-chip{background:#edf7f3;color:#187a61;border:1px solid #d6eee2;font-size:12px;font-weight:900;border-radius:99px;padding:7px 10px}.topic{font-size:12px;font-weight:900;color:#0d777a;margin:0 0 8px}.prompt{font-size:22px;line-height:1.42;font-weight:950;margin:0 0 8px;word-break:keep-all}.sub{font-size:13px;color:var(--mute);margin:0 0 15px}.outcome{background:#e9f4fb;border-left:4px solid var(--blue);padding:15px;border-radius:11px;margin:15px 0;font-weight:900;font-size:18px}.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}.choice{background:#f8fbfc;border:2px solid #dfebed;border-radius:12px;padding:16px 8px;font-size:17px;font-weight:900;color:#1d4856;transition:transform .1s,background .1s}.choice:hover:not(:disabled){background:#e8f5f4;border-color:#78beb8;transform:translateY(-1px)}.choice.correct{background:#def8e7;border-color:#29a675;color:#117047}.choice.wrong{background:#ffe7e6;border-color:#d96659;color:#aa3532}.choice:disabled{opacity:1;cursor:default}.feedback{background:#f0f6f5;border:1px solid #cfdfdc;border-radius:13px;padding:16px;margin:13px 0;animation:up .2s ease-out}.feedback.correct{border-color:#9ddec4;background:#eafff3}.feedback.wrong{border-color:#e7b5b0;background:#fff5f4}.feedback strong{display:block;font-size:16px;margin-bottom:5px}.feedback p{margin:0;font-size:14px;color:#3d5760;word-break:keep-all}.btn{border:0;background:#087c7d;color:white;border-radius:12px;padding:13px 18px;font-weight:900;min-height:45px}.btn:hover:not(:disabled){background:#096e70}.btn.secondary{background:#edf4f5;color:#335661;border:1px solid #cddfe1}.btn.secondary:hover{background:#dcebee}.btn.orange{background:#db7936}.btn.blue{background:#397ed0}.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:17px}.progress{height:9px;background:#e7f0f0;border-radius:50px;overflow:hidden;margin:0 0 16px}.progress>div{height:100%;background:linear-gradient(90deg,#10a691,#88cd91);border-radius:50px;transition:width .25s}.topline{display:flex;align-items:center;justify-content:space-between;gap:8px}.counter{color:#5d7882;font-size:13px;font-weight:900}.tip{font-size:12px;color:#627a84;background:#f5faf9;border-radius:10px;padding:11px 12px;margin-top:14px}.medal{font-size:46px;margin:8px 0}.end{text-align:center;padding:10px 0}.end h2{font-size:27px}.end .big{font-size:35px;font-weight:950;color:#0a8984}.history{max-height:245px;overflow:auto;padding-right:3px;display:flex;flex-direction:column;gap:6px}.history-line{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;padding:8px 10px;border-radius:7px;background:#f7faf9}.history-line strong{font-variant-numeric:tabular-nums}.rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:16px}.rule{font-size:12px;border:1px solid #deebea;border-radius:10px;padding:10px;background:#fafdfe}.rule b{display:block;color:#0d6e72;margin-bottom:3px}.win{background:#e7f7e8;border:1px solid #add7b2;border-radius:11px;padding:13px;margin:12px 0;font-weight:900;color:#247746}footer{text-align:center;color:#81969d;font-size:11px;margin-top:23px}.hidden{display:none}@keyframes up{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}@media(max-width:780px){.main{grid-template-columns:1fr}.shell{padding:10px 10px 30px}.mast{padding:23px 19px;border-radius:16px}.panel{padding:16px;border-radius:15px}.tabs{gap:5px}.tab{padding:11px 12px;font-size:12px}.score-num{font-size:36px}.court{max-width:550px;margin:auto}.choice{padding:15px 7px}.prompt{font-size:20px}}@media(min-width:781px){.right-sticky{position:sticky;top:15px}}@media(prefers-reduced-motion:reduce){*,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="mast">
+    <div class="eyebrow">PICKLEBALL QUEST · 중학교 체육</div>
+    <h1>🏓 피클볼 규칙 퀘스트</h1>
+    <p>서브는 누구 차례일까? 점수는 왜 그대로일까? 직접 판정하며 <b>사이드아웃제</b>와 경기 규칙을 익혀 보세요.</p>
+    <div><span class="tag">0–0–2부터 시작</span><span class="tag">점수판 미션</span><span class="tag">반칙 판정</span><span class="tag">자유 경기</span></div>
+  </header>
+  <nav class="tabs" aria-label="게임 방식 선택">
+    <button type="button" class="tab active" data-tab="score">🎯 점수판 미션</button>
+    <button type="button" class="tab" data-tab="rules">⚖️ 반칙 판정 퀴즈</button>
+    <button type="button" class="tab" data-tab="free">🏟️ 자유 경기 시뮬레이터</button>
+  </nav>
+  <div class="main">
+    <section class="panel right-sticky">
+      <div class="topline"><div class="smallheading">LIVE SCOREBOARD · 복식 사이드아웃제</div><span class="tiny-chip" id="serveBadge">A팀 서브</span></div>
+      <div class="scoreboard">
+        <div class="team-score"><div class="team-title" style="color:#3574be">🔵 A팀</div><div class="score-num" id="scoreA">0</div><small>철수 · 영희</small></div>
+        <div class="call"><small>다음 서브 콜</small><strong id="scoreCall">0–0–2</strong><small id="serverText">2번 서버</small></div>
+        <div class="team-score b"><div class="team-title" style="color:#b86b20">🟠 B팀</div><div class="score-num" id="scoreB">0</div><small>민수 · 지영</small></div>
+      </div>
+      <div class="court" role="group" aria-label="선수들의 코트 좌우 위치">
+        <p class="court-title">🟠 B팀 코트 (상대편을 바라보는 방향 기준)</p>
+        <div class="half" id="courtB"></div>
+        <div class="kitchen">키친 · 바운드 후 타구 가능 / 발리 금지</div>
+        <div class="net">NET</div>
+        <div class="kitchen">키친 · 바운드 후 타구 가능 / 발리 금지</div>
+        <div class="half" id="courtA"></div>
+        <p class="court-title" style="margin:9px 0 0">🔵 A팀 코트</p>
+      </div>
+      <div class="side-legend">⭐ 테두리가 빛나는 선수가 현재 서버입니다. 서브 팀이 득점하면 같은 선수의 좌우 위치가 바뀝니다.</div>
+      <div class="rules">
+        <div class="rule"><b>① 서브 팀 승리</b>1점 획득 → 같은 선수 좌우 이동</div>
+        <div class="rule"><b>② 리시브 팀 승리</b>득점 없음 → 서버 교체 또는 사이드아웃</div>
+        <div class="rule"><b>③ 1번 서버가 패배</b>같은 팀의 2번 서버에게 서브권 이동</div>
+        <div class="rule"><b>④ 2번 서버가 패배</b>상대 팀에 서브권 이동(사이드아웃)</div>
+      </div>
+    </section>
+    <section class="panel" id="activity" aria-live="polite"></section>
+  </div>
+  <footer>학습용 자료 · 전통적인 복식 사이드아웃제 기준 · HTML 파일을 PC/태블릿 브라우저에서 인터넷 없이 실행 가능</footer>
+</div>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const other=t=>t==='A'?'B':'A';
+const PEOPLE={A:['철수','영희'],B:['민수','지영']};
+function makeMatch(){return {points:{A:0,B:0},serving:'A',number:2,holder:'철수',positions:{A:{right:'철수',left:'영희'},B:{right:'민수',left:'지영'}},turn:0,log:[]};}
+function clone(s){return JSON.parse(JSON.stringify(s));}
+function call(s){return `${s.points[s.serving]}–${s.points[other(s.serving)]}–${s.number}`;}
+function result(s,winner){const next=clone(s),was=s.serving; let kind,detail;
+ if(winner===was){next.points[was]++;const p=next.positions[was];[p.left,p.right]=[p.right,p.left];kind='point';detail=`${was}팀이 서브한 랠리를 이겨 1점을 얻었어요. ${next.holder} 선수가 좌우를 바꿔 계속 서브합니다.`;}
+ else if(s.number===1){next.number=2;next.holder=PEOPLE[was].find(n=>n!==s.holder);kind='second';detail=`리시브 팀 ${winner}팀이 이겼지만 득점은 없어요. ${was}팀 1번 서버의 서브가 끝나 2번 서버 ${next.holder} 선수가 이어서 서브합니다.`;}
+ else{next.serving=winner;next.number=1;next.holder=next.positions[winner].right;kind='sideout';detail=`사이드아웃! ${was}팀의 마지막 서버가 서브권을 잃었어요. 점수는 그대로, ${winner}팀 오른쪽의 ${next.holder} 선수가 1번 서버로 시작합니다.`;}
+ next.turn++;next.log.unshift({winner,kind,score:call(next),detail});return {next,kind,detail};
+}
+function playerHtml(s,t,side){const name=s.positions[t][side],isServ=s.serving===t&&s.holder===name;return `<div class="place"><span class="player ${t==='B'?'b':''} ${isServ?'serving':''}">${isServ?'🏓 ':''}${name}</span><small>${side==='right'?'오른쪽':'왼쪽'}${isServ?' · 서브':''}</small></div>`;}
+function updateCourt(s){$('scoreA').textContent=s.points.A;$('scoreB').textContent=s.points.B;$('scoreCall').textContent=call(s);$('serverText').textContent=s.number+'번 서버 · '+s.holder;$('serveBadge').textContent=s.serving+'팀 서브';
+ // B팀은 아래를 바라보므로, 화면 좌우가 A팀과 반대입니다.
+ $('courtB').innerHTML=playerHtml(s,'B','right')+playerHtml(s,'B','left');
+ $('courtA').innerHTML=playerHtml(s,'A','left')+playerHtml(s,'A','right');
+}
+function shuffle(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+function makeChoices(s,next){const right=call(next),candidate=[right,call(s),`${next.points[next.serving]}–${next.points[other(next.serving)]}–${next.number===1?2:1}`,`${next.points[next.serving]+1}–${next.points[other(next.serving)]}–${next.number}`,`${next.points[next.serving]}–${next.points[other(next.serving)]+1}–${next.number}`,`${next.points[next.serving]}–${next.points[other(next.serving)]}–${s.number}`,`${next.points[other(next.serving)]}–${next.points[next.serving]}–${next.number}`,`${next.points[next.serving]}–${next.points[other(next.serving)]}–3`];
+ const uniq=[...new Set(candidate)].filter(x=>x!==right);let k=1;while(uniq.length<3){const cand=`${next.points[next.serving]+k}–${next.points[other(next.serving)]}–${k%2+1}`;if(cand!==right&&!uniq.includes(cand))uniq.push(cand);k++;}
+ return shuffle([right,...shuffle(uniq).slice(0,3)]);
+}
+const SEQUENCE=['A','A','B','B','A','B','B','A','B','A','A','B','B','A','B','A'];
+let challenge={match:makeMatch(),index:0,correct:0,answered:null,choices:[],candidate:null};
+function prepare(){if(challenge.index>=SEQUENCE.length)return;challenge.candidate=result(challenge.match,SEQUENCE[challenge.index]);challenge.choices=makeChoices(challenge.match,challenge.candidate.next);}
+prepare();
+const QUESTIONS=[
+ {q:'서브한 공이 상대편 키친 경계선에 닿았어요.',o:['정상','파울'],a:1,why:'서브는 대각선 서비스 구역에 들어가야 합니다. 키친 내부와 키친 경계선에 닿으면 파울이에요.'},
+ {q:'서브한 공이 대각선 서비스 구역의 센터라인에 닿았어요.',o:['정상','파울'],a:0,why:'센터라인은 유효한 서비스 구역의 경계선이에요. 키친 라인과 달리 인으로 인정합니다.'},
+ {q:'발리 서브를 할 때 공을 살짝 위로 던지고, 회전을 주지 않은 채 올바른 자세로 쳤어요.',o:['정상','파울'],a:0,why:'발리 서브는 가볍게 토스해도 됩니다. 다만 공에 인위적 회전을 주지 않고 위쪽 스윙, 허리 이하 타점 등의 조건을 충족해야 해요.'},
+ {q:'드롭 서브에서 공을 위로 던져 바닥에 튀긴 다음 쳤어요.',o:['정상','파울'],a:1,why:'드롭 서브는 공을 위나 아래로 던지지 않고 자연스럽게 떨어뜨려야 해요.'},
+ {q:'드롭 서브에서 공을 자연스럽게 떨어뜨려 자기 코트 안에 바운드한 뒤 쳤어요. 서브할 때 발은 베이스라인 뒤에 있어요.',o:['정상','파울'],a:0,why:'드롭 서브는 공의 바운드 위치가 제한되지 않습니다. 발 위치와 올바른 드롭 동작이 중요해요.'},
+ {q:'서브를 받는 선수가 공이 바닥에 닿기 전에 발리했어요.',o:['정상','파울'],a:1,why:'투바운드 규칙! 서브를 받은 팀은 반드시 한 번 바운드한 후 리턴해야 해요.'},
+ {q:'서브했던 팀이 상대의 첫 리턴을 바운드 없이 곧바로 발리했어요.',o:['정상','파울'],a:1,why:'서브한 팀도 돌아온 리턴을 한 번 바운드한 후 쳐야 합니다. 그 뒤에는 발리가 가능해요.'},
+ {q:'선수가 키친 안에 서서 다음 공을 기다리고만 있어요.',o:['정상','파울'],a:0,why:'키친에 들어가거나 서 있는 것 자체는 파울이 아니에요. 키친에서 발리하는 행동이 금지됩니다.'},
+ {q:'키친 안에서 공이 한 번 바운드한 뒤 딩크로 넘겼어요.',o:['정상','파울'],a:0,why:'키친 안에서도 바운드한 공은 칠 수 있어요. 딩크를 할 때 자주 활용하는 방식입니다.'},
+ {q:'키친 밖에서 발리했지만 그 동작의 관성으로 키친 라인을 밟았어요.',o:['정상','파울'],a:1,why:'발리의 관성으로 키친 안이나 키친 라인을 밟으면 파울입니다. 공이 이미 넘어갔어도 마찬가지예요.'},
+ {q:'서브 순간 서버의 발이 베이스라인을 밟고 있었어요.',o:['정상','파울'],a:1,why:'서브 타구 순간에는 발이 베이스라인을 밟거나 코트 안에 들어가면 안 됩니다.'},
+ {q:'랠리 중 공이 사이드라인에 닿았어요.',o:['정상','파울'],a:0,why:'코트의 경계선에 닿은 공은 인입니다. 단, 서브의 키친 라인은 예외입니다.'},
+ {q:'서브한 공이 네트를 스치고 넘어가 올바른 대각선 서비스 구역에 떨어졌어요.',o:['정상','파울'],a:0,why:'네트를 맞고 넘어갔더라도 올바른 서비스 구역에 들어가면 정상 서브예요.'},
+ {q:'선수가 키친 안에서 공이 바닥에 닿기 전에 발리했어요.',o:['정상','파울'],a:1,why:'키친(논발리존) 안에서의 발리는 반칙이에요. 경계선을 밟아도 마찬가지입니다.'},
+ {q:'상대편 코트에서 공이 두 번 바운드한 뒤 상대가 쳤어요.',o:['정상','파울'],a:1,why:'공이 자기 코트에서 두 번 바운드하면 그 팀이 랠리를 잃습니다.'},
+ {q:'키친 밖에서 발리한 뒤 멈춰 균형을 완전히 회복하고, 그다음 키친으로 들어갔어요.',o:['정상','파울'],a:0,why:'발리의 관성이 완전히 끝난 뒤 키친으로 들어가는 것은 정상입니다.'}
+];
+let quiz={list:shuffle(QUESTIONS).slice(0,12),index:0,correct:0,answered:null};
+let free={match:makeMatch(),history:[]};
+let mode='score';
+function feedbackHtml(correct,title,description){return `<div class="feedback ${correct?'correct':'wrong'}"><strong>${correct?'✅ 정답! ':'💡 확인! '}${title}</strong><p>${description}</p></div>`;}
+function scoreView(){if(challenge.index>=SEQUENCE.length){$('activity').innerHTML=`<div class="end"><div class="medal">${challenge.correct>=13?'🏆':'🥇'}</div><h2>점수판 미션 완료!</h2><div class="big">${challenge.correct} / ${SEQUENCE.length} 정답</div><p class="sub">0–0–2에서 출발해 서버 교체와 사이드아웃을 직접 판정했어요.</p><button class="btn" data-action="reset-score">다시 도전하기 ↺</button></div>`;return;}
+ const current=challenge.match,win=SEQUENCE[challenge.index],n=challenge.index+1,answered=challenge.answered!==null;
+ const options=challenge.choices.map((v,i)=>`<button class="choice ${answered?(v===call(challenge.candidate.next)?'correct':i===challenge.answered?'wrong':''):''}" data-action="score-answer" data-index="${i}" ${answered?'disabled':''}>${v}</button>`).join('');
+ $('activity').innerHTML=`<div class="topline"><div class="topic">MISSION 01 · 사이드아웃 점수판</div><div class="counter">${n} / ${SEQUENCE.length} 문제 · 정답 ${challenge.correct}</div></div><div class="progress"><div style="width:${(challenge.index/SEQUENCE.length)*100}%"></div></div>
+ <h2>다음 점수는 무엇일까요?</h2><p class="sub">현재 점수와 서버 번호를 보고 랠리 결과를 판단해 보세요.</p><div class="outcome">${win==='A'?'🔵 A팀':'🟠 B팀'}이 랠리에서 승리했습니다!</div>
+ <div class="prompt">다음 서브 직전 외칠 점수를 고르세요.</div><p class="sub">순서: 서브 팀 점수 – 리시브 팀 점수 – 서버 번호</p><div class="choice-grid">${options}</div>
+ ${answered?feedbackHtml(challenge.choices[challenge.answered]===call(challenge.candidate.next),'정답 '+call(challenge.candidate.next),challenge.candidate.detail):''}
+ <div class="actions">${answered?'<button class="btn" data-action="score-next">'+(n===SEQUENCE.length?'결과 보기':'다음 랠리 →')+'</button>':''}<button class="btn secondary" data-action="reset-score">처음부터</button></div><div class="tip">💬 처음에는 0–0–2! 시작 팀은 두 번째 서버부터 진행하기 때문에 서브권을 한 번 잃으면 곧바로 사이드아웃입니다.</div>`;
+}
+function rulesView(){if(quiz.index>=quiz.list.length){$('activity').innerHTML=`<div class="end"><div class="medal">${quiz.correct>=10?'🏆':'🎖️'}</div><h2>반칙 판정 퀴즈 완료!</h2><div class="big">${quiz.correct} / ${quiz.list.length} 정답</div><p class="sub">서브·키친·투바운드 규칙을 모두 연습했습니다.</p><button class="btn" data-action="reset-rules">새로운 문제 풀기 ↺</button></div>`;return;}
+ const q=quiz.list[quiz.index],answered=quiz.answered!==null;
+ $('activity').innerHTML=`<div class="topline"><div class="topic">MISSION 02 · 판정왕 챌린지</div><div class="counter">${quiz.index+1} / ${quiz.list.length} 문제 · 정답 ${quiz.correct}</div></div><div class="progress"><div style="width:${(quiz.index/quiz.list.length)*100}%"></div></div><h2>정상 플레이일까요, 파울일까요?</h2><p class="sub">경기 상황을 읽고 심판처럼 판단해 보세요.</p><div class="outcome" style="background:#f3f0ff;border-color:#9582c9">${q.q}</div><div class="choice-grid">${q.o.map((o,i)=>`<button class="choice ${answered?(i===q.a?'correct':i===quiz.answered?'wrong':''):''}" data-action="rules-answer" data-index="${i}" ${answered?'disabled':''}>${o==='정상'?'✅ ':o==='파울'?'⛔ ':''}${o}</button>`).join('')}</div>${answered?feedbackHtml(quiz.answered===q.a,'정답은 '+q.o[q.a],q.why):''}<div class="actions">${answered?'<button class="btn" data-action="rules-next">'+(quiz.index===quiz.list.length-1?'결과 보기':'다음 문제 →')+'</button>':''}<button class="btn secondary" data-action="reset-rules">문제 섞기 ↺</button></div><div class="tip">👩‍⚖️ 심판이 없는 경기에서는 자신에게 불리한 상황도 정직하게 판정하는 태도가 중요합니다.</div>`;
+}
+function freeView(){const s=free.match,winA=s.points.A>=11&&s.points.A-s.points.B>=2,winB=s.points.B>=11&&s.points.B-s.points.A>=2,done=winA||winB;
+ const history=s.log.slice(0,7).map(l=>`<div class="history-line"><span>${l.winner==='A'?'🔵':'🟠'} ${l.winner}팀 승리 ${l.kind==='sideout'?'↪ 사이드아웃':l.kind==='second'?'↪ 2번 서버':'＋ 득점'}</span><strong>${l.score}</strong></div>`).join('');
+ $('activity').innerHTML=`<div class="topic">MISSION 03 · 자유 경기 시뮬레이터</div><h2>우리 반 가상 복식 경기</h2><p class="sub">랠리에서 이긴 팀을 직접 누르세요. 점수·서버·코트 위치가 자동으로 바뀝니다.</p>${done?`<div class="win">🏆 ${winA?'A팀':'B팀'} 승리! 11점 이상, 2점 차 승리 조건을 달성했습니다.</div>`:''}
+ <div class="choice-grid"><button class="btn blue" data-action="free-win" data-team="A" ${done?'disabled':''}>🔵 A팀 랠리 승리</button><button class="btn orange" data-action="free-win" data-team="B" ${done?'disabled':''}>🟠 B팀 랠리 승리</button></div><div class="actions"><button class="btn secondary" data-action="free-undo" ${free.history.length?'':'disabled'}>↶ 한 단계 취소</button><button class="btn secondary" data-action="free-reset">↺ 새 경기</button></div>
+ <h3 style="margin:25px 0 11px;font-size:15px">최근 경기 기록</h3>${history?`<div class="history">${history}</div>`:'<div class="tip">아직 진행한 랠리가 없습니다. 승리 팀을 선택해 보세요.</div>'}${s.log.length?`<div class="tip">${s.log[0].detail}</div>`:''}
+ <div class="tip">📌 공식 복식 사이드아웃제 연습입니다. 실제 학교 수업의 랠리포인트제와는 득점 방식이 달라요.</div>`;
+}
+function paint(){const s=mode==='score'?challenge.match:mode==='free'?free.match:makeMatch();updateCourt(s);for(const x of document.querySelectorAll('.tab'))x.classList.toggle('active',x.dataset.tab===mode);if(mode==='score')scoreView();if(mode==='rules')rulesView();if(mode==='free')freeView();}
+document.addEventListener('click',e=>{const btn=e.target.closest('button');if(!btn)return;const action=btn.dataset.action;if(btn.dataset.tab){mode=btn.dataset.tab;paint();return;}
+ if(action==='score-answer'&&challenge.answered===null){challenge.answered=Number(btn.dataset.index);if(challenge.choices[challenge.answered]===call(challenge.candidate.next))challenge.correct++;paint();}
+ if(action==='score-next'&&challenge.answered!==null){challenge.match=challenge.candidate.next;challenge.index++;challenge.answered=null;prepare();paint();}
+ if(action==='reset-score'){challenge={match:makeMatch(),index:0,correct:0,answered:null,choices:[],candidate:null};prepare();paint();}
+ if(action==='rules-answer'&&quiz.answered===null){quiz.answered=Number(btn.dataset.index);if(quiz.answered===quiz.list[quiz.index].a)quiz.correct++;paint();}
+ if(action==='rules-next'&&quiz.answered!==null){quiz.index++;quiz.answered=null;paint();}
+ if(action==='reset-rules'){quiz={list:shuffle(QUESTIONS).slice(0,12),index:0,correct:0,answered:null};paint();}
+ if(action==='free-win'){free.history.push(clone(free.match));free.match=result(free.match,btn.dataset.team).next;paint();}
+ if(action==='free-undo'&&free.history.length){free.match=free.history.pop();paint();}
+ if(action==='free-reset'){free={match:makeMatch(),history:[]};paint();}
+});
+paint();
+})();
+</script>
+</body>
+</html>
